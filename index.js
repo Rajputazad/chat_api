@@ -5,8 +5,6 @@ const express = require("express");
 const app = express();
 const port = 3337;
 const router = express.Router()
-app.use(express.static(__dirname + '/public'));
-app.use('/assets/images', express.static('assets/images'));
 const chatapp = require("./app")(router);
 
 app.use(express.json({limit: '50mb'}));

@@ -38,6 +38,19 @@ module.exports = function (router) {
     }
   });
 
+  router.delete("/delete", multer.any(), async (req, res) => {
+    try {
+        
+        let data = await datas.deleteMany();
+       
+        res.json({ success: true, message: "msg Successfully deleted",data:data });
+        // console.log(data)
+    } catch (error) {
+        res.json({ success: false, message: "something went wrong" });
+console.log(error);
+    }
+  });
+
  
   return router;
 };
